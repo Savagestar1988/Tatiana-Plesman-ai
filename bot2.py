@@ -1,6 +1,6 @@
 import os
 from telegram import Update
-from telegram.ext import Application, CommandHandler, MessageHandler, filters, ContextTypes
+from telegram.ext import Application,  CommandHandler, MessageHandler, filters, ContextTypes
 from huggingface_hub import InferenceClient
 
 BOT_TOKEN = "8777371298:AAGbpOaLmx2Jnz_u_j1llRVFtbJDQTC02Po"
