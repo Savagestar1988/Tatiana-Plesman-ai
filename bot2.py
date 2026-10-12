@@ -1,3 +1,4 @@
+
 import os
 from telegram import Update
 from telegram.ext import Application,  CommandHandler, MessageHandler, filters, ContextTypes
@@ -17,6 +18,8 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 async def chat(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
+
+    
     if user_id != YOUR_TELEGRAM_ID and user_id not in ALLOWED_USERS:
         await update.message.reply_text("You haven't unlocked me yet. Message my owner to get full access.")
         return
@@ -34,8 +37,11 @@ async def chat(update: Update, context: ContextTypes.DEFAULT_TYPE):
     except Exception:
         await update.message.reply_text("Fuck... something went wrong. Try again in a second.")
 
+async def post_init(app):
+    await app.bot.delete_webhook(drop_pending_updates=True)
+
 def main():
-    app = Application.builder().token(BOT_TOKEN).build()
+    app = Application.builder().token(BOT_TOKEN).post_init(post_init).build()
     app.add_handler(CommandHandler("start", start))
     app.add_handler(MessageHandler(filters.TEXT, chat))
     print("Tatiana is online...")
