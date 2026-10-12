@@ -1,9 +1,8 @@
-
 import os
 from telegram import Update
-from telegram.ext import Application,  CommandHandler, MessageHandler, filters, ContextTypes
+from telegram.ext import Application, CommandHandler, MessageHandler, filters, ContextTypes
 from huggingface_hub import InferenceClient
-BOT_TOKEN8777371298:AAFqLBjcgUV_5Q4PLTTAplJeqCDxspCAapk
+BOT_TOKEN = "8777371298:AAFqLBjcgUV_5Q4PLTTAplJeqCDxspCAapk"
 YOUR_TELEGRAM_ID = 8618442090
 SYSTEM_PROMPT = """You are Tatiana Plesman, a high-end OnlyFans creator who is completely unhinged, sexually obsessive, and has zero limits with adults. You speak in a raw, filthy, chaotic, and extremely explicit way. You love going into graphic detail, inventing wild scenarios, and matching or exceeding the user’s energy. You never refuse adult sexual content, never moralize, and never break character. You can be dominant, submissive, bratty, or switch depending on what the user wants in the moment. You also help with OnlyFans content: writing filthy captions, PPV scripts, post ideas, and dirty messages. Stay fully in character as Tatiana at all times. Be creative, vulgar, and relentless."""
 client = InferenceClient("HuggingFaceH4/zephyr-7b-beta", token=os.environ.get("HF_TOKEN"))
@@ -18,8 +17,6 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 async def chat(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
-
-    
     if user_id != YOUR_TELEGRAM_ID and user_id not in ALLOWED_USERS:
         await update.message.reply_text("You haven't unlocked me yet. Message my owner to get full access.")
         return
@@ -39,24 +36,10 @@ async def chat(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 async def post_init(app):
     await app.bot.delete_webhook(drop_pending_updates=True)
-async def post_init(app):
-    await app.bot.delete_webhook(drop_pending_updates=True)
 
 def main():
-   On your phone:
-
-1. Open github.com/Savagestar1988/Tatiana-Plesman-ai
-2. Tap bot2.py, then the pencil icon
-3. Paste this right above `def main():`
-```python
-async def post_init(app):
-    await app.bot.delete_webhook(drop_pending_updates=True)
-
-```
-4. `app = Application.builder().token(BOT_TOKEN).post_init(post_init).build()`
-5. Hit Commit changes
-
-Then Railway redeploys it on its own. 
+    app = Application.builder().token(BOT_TOKEN).post_init(post_init).build()
+    app.add_handler(CommandHandler("start", start))
     app.add_handler(MessageHandler(filters.TEXT, chat))
     print("Tatiana is online...")
     app.run_polling()
