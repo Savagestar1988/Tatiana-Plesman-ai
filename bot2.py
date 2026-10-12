@@ -43,8 +43,20 @@ async def post_init(app):
     await app.bot.delete_webhook(drop_pending_updates=True)
 
 def main():
-    app = Application.builder().token(BOT_TOKEN).post_init(post_init).build()
-    app.add_handler(CommandHandler("start", start))
+   On your phone:
+
+1. Open github.com/Savagestar1988/Tatiana-Plesman-ai
+2. Tap bot2.py, then the pencil icon
+3. Paste this right above `def main():`
+```python
+async def post_init(app):
+    await app.bot.delete_webhook(drop_pending_updates=True)
+
+```
+4. `app = Application.builder().token(BOT_TOKEN).post_init(post_init).build()`
+5. Hit Commit changes
+
+Then Railway redeploys it on its own. 
     app.add_handler(MessageHandler(filters.TEXT, chat))
     print("Tatiana is online...")
     app.run_polling()
