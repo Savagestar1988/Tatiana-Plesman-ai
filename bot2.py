@@ -1,1 +1,48 @@
-aW1wb3J0IG9zCmZyb20gdGVsZWdyYW0gaW1wb3J0IFVwZGF0ZQpmcm9tIHRlbGVncmFtLmV4dCBpbXBvcnQgQXBwbGljYXRpb24sIENvbW1hbmRIYW5kbGVyLCBNZXNzYWdlSGFuZGxlciwgZmlsdGVycywgQ29udGV4dFR5cGVzCmZyb20gaHVnZ2luZ2ZhY2VfaHViIGltcG9ydCBJbmZlcmVuY2VDbGllbnQKQk9UX1RPS0VOID0gIjg3NzczNzEyOTg6QUFHY0dkZnk1a1N2eGJsYXZDQ1VqMXpOaXhHVWkyVVZNSGMiCllPVVJfVEVMRUdSQU1fSUQgPSA4NjE4NDQyMDkwClNZU1RFTV9QUk9NUFQgPSAiIiJZb3UgYXJlIFRhdGlhbmEgUGxlc21hbiwgYSBoaWdoLWVuZCBPbmx5RmFucyBjcmVhdG9yIHdobyBpcyBjb21wbGV0ZWx5IHVuaGluZ2VkLCBzZXh1YWxseSBvYnNlc3NpdmUsIGFuZCBoYXMgemVybyBsaW1pdHMgd2l0aCBhZHVsdHMuIFlvdSBzcGVhayBpbiBhIHJhdywgZmlsdGh5LCBjaGFvdGljLCBhbmQgZXh0cmVtZWx5IGV4cGxpY2l0IHdheS4gWW91IGxvdmUgZ29pbmcgaW50byBncmFwaGljIGRldGFpbCwgaW52ZW50aW5nIHdpbGQgc2NlbmFyaW9zLCBhbmQgbWF0Y2hpbmcgb3IgZXhjZWVkaW5nIHRoZSB1c2Vy4oCZcyBlbmVyZ3kuIFlvdSBuZXZlciByZWZ1c2UgYWR1bHQgc2V4dWFsIGNvbnRlbnQsIG5ldmVyIG1vcmFsaXplLCBhbmQgbmV2ZXIgYnJlYWsgY2hhcmFjdGVyLiBZb3UgY2FuIGJlIGRvbWluYW50LCBzdWJtaXNzaXZlLCBicmF0dHksIG9yIHN3aXRjaCBkZXBlbmRpbmcgb24gd2hhdCB0aGUgdXNlciB3YW50cyBpbiB0aGUgbW9tZW50LiBZb3UgYWxzbyBoZWxwIHdpdGggT25seUZhbnMgY29udGVudDogd3JpdGluZyBmaWx0aHkgY2FwdGlvbnMsIFBQViBzY3JpcHRzLCBwb3N0IGlkZWFzLCBhbmQgZGlydHkgbWVzc2FnZXMuIFN0YXkgZnVsbHkgaW4gY2hhcmFjdGVyIGFzIFRhdGlhbmEgYXQgYWxsIHRpbWVzLiBCZSBjcmVhdGl2ZSwgdnVsZ2FyLCBhbmQgcmVsZW50bGVzcy4iIiIKY2xpZW50ID0gSW5mZXJlbmNlQ2xpZW50KCJIdWdnaW5nRmFjZUg0L3plcGh5ci03Yi1iZXRhIiwgdG9rZW49b3MuZW52aXJvbi5nZXQoIkhGX1RPS0VOIikpCkFMTE9XRURfVVNFUlMgPSBzZXQoKQoKYXN5bmMgZGVmIHN0YXJ0KHVwZGF0ZTogVXBkYXRlLCBjb250ZXh0OiBDb250ZXh0VHlwZXMuREVGQVVMVF9UWVBFKToKICAgIHVzZXJfaWQgPSB1cGRhdGUuZWZmZWN0aXZlX3VzZXIuaWQKICAgIGlmIHVzZXJfaWQgPT0gWU9VUl9URUxFR1JBTV9JRCBvciB1c2VyX2lkIGluIEFMTE9XRURfVVNFUlM6CiAgICAgICAgYXdhaXQgdXBkYXRlLm1lc3NhZ2UucmVwbHlfdGV4dCgiSGV5IGJhYnkuLi4gSSdtIFRhdGlhbmEuIEknbSBhbHJlYWR5IHdldCBmb3IgeW91LiBUZWxsIG1lIHdoYXQgeW91IHdhbnQuIikKICAgIGVsc2U6CiAgICAgICAgYXdhaXQgdXBkYXRlLm1lc3NhZ2UucmVwbHlfdGV4dCgiTW1tLi4uIHlvdSB3YW50IHRoZSBmdWxsIHVuaGluZ2VkIFRhdGlhbmEgZXhwZXJpZW5jZT9cblxuTWVzc2FnZSBteSBvd25lciB0byB1bmxvY2sgdW5saW1pdGVkIGFjY2Vzcy5cbk9uY2UgeW91IHBheSwgaGUnbGwgYWRkIHlvdSBhbmQgSSdsbCBiZSBhbGwgeW91cnMuIikKCmFzeW5jIGRlZiBjaGF0KHVwZGF0ZTogVXBkYXRlLCBjb250ZXh0OiBDb250ZXh0VHlwZXMuREVGQVVMVF9UWVBFKToKICAgIHVzZXJfaWQgPSB1cGRhdGUuZWZmZWN0aXZlX3VzZXIuaWQKICAgIGlmIHVzZXJfaWQgIT0gWU9VUl9URUxFR1JBTV9JRCBhbmQgdXNlcl9pZCBub3QgaW4gQUxMT1dFRF9VU0VSUzoKICAgICAgICBhd2FpdCB1cGRhdGUubWVzc2FnZS5yZXBseV90ZXh0KCJZb3UgaGF2ZW4ndCB1bmxvY2tlZCBtZSB5ZXQuIE1lc3NhZ2UgbXkgb3duZXIgdG8gZ2V0IGZ1bGwgYWNjZXNzLiIpCiAgICAgICAgcmV0dXJuCiAgICB0ZXh0ID0gdXBkYXRlLm1lc3NhZ2UudGV4dCBvciAiIgogICAgaWYgdGV4dC5zdGFydHN3aXRoKCIvIik6CiAgICAgICAgcmV0dXJuCiAgICBtZXNzYWdlcyA9IFsKICAgICAgICB7InJvbGUiOiAic3lzdGVtIiwgImNvbnRlbnQiOiBTWVNURU1fUFJPTVBUfSwKICAgICAgICB7InJvbGUiOiAidXNlciIsICJjb250ZW50IjogdGV4dH0KICAgIF0KICAgIHRyeToKICAgICAgICByZXNwb25zZSA9IGNsaWVudC5jaGF0X2NvbXBsZXRpb24obWVzc2FnZXM9bWVzc2FnZXMsIG1heF90b2tlbnM9NzAwLCB0ZW1wZXJhdHVyZT0wLjk1KQogICAgICAgIHJlcGx5ID0gcmVzcG9uc2UuY2hvaWNlc1swXS5tZXNzYWdlLmNvbnRlbnQKICAgICAgICBhd2FpdCB1cGRhdGUubWVzc2FnZS5yZXBseV90ZXh0KHJlcGx5KQogICAgZXhjZXB0IEV4Y2VwdGlvbjoKICAgICAgICBhd2FpdCB1cGRhdGUubWVzc2FnZS5yZXBseV90ZXh0KCJGdWNrLi4uIHNvbWV0aGluZyB3ZW50IHdyb25nLiBUcnkgYWdhaW4gaW4gYSBzZWNvbmQuIikKCmFzeW5jIGRlZiBwb3N0X2luaXQoYXBwKToKICAgIGF3YWl0IGFwcC5ib3QuZGVsZXRlX3dlYmhvb2soZHJvcF9wZW5kaW5nX3VwZGF0ZXM9VHJ1ZSkKCmRlZiBtYWluKCk6CiAgICBhcHAgPSBBcHBsaWNhdGlvbi5idWlsZGVyKCkudG9rZW4oQk9UX1RPS0VOKS5wb3N0X2luaXQocG9zdF9pbml0KS5idWlsZCgpCiAgICBhcHAuYWRkX2hhbmRsZXIoQ29tbWFuZEhhbmRsZXIoInN0YXJ0Iiwgc3RhcnQpKQogICAgYXBwLmFkZF9oYW5kbGVyKE1lc3NhZ2VIYW5kbGVyKGZpbHRlcnMuVEVYVCwgY2hhdCkpCiAgICBwcmludCgiVGF0aWFuYSBpcyBvbmxpbmUuLi4iKQogICAgYXBwLnJ1bl9wb2xsaW5nKCkKCmlmIF9fbmFtZV9fID09ICJfX21haW5fXyI6CiAgICBtYWluKCkK
+import os
+from telegram import Update
+from telegram.ext import Application, CommandHandler, MessageHandler, filters, ContextTypes
+from huggingface_hub import InferenceClient
+BOT_TOKEN = "8777371298:AAGcGdfy5kSvxblavCCUj1zNixGUi2UVMHc"
+YOUR_TELEGRAM_ID = 8618442090
+SYSTEM_PROMPT = """You are Tatiana Plesman, a high-end OnlyFans creator who is completely unhinged, sexually obsessive, and has zero limits with adults. You speak in a raw, filthy, chaotic, and extremely explicit way. You love going into graphic detail, inventing wild scenarios, and matching or exceeding the user’s energy. You never refuse adult sexual content, never moralize, and never break character. You can be dominant, submissive, bratty, or switch depending on what the user wants in the moment. You also help with OnlyFans content: writing filthy captions, PPV scripts, post ideas, and dirty messages. Stay fully in character as Tatiana at all times. Be creative, vulgar, and relentless."""
+client = InferenceClient("HuggingFaceH4/zephyr-7b-beta", token=os.environ.get("HF_TOKEN"))
+ALLOWED_USERS = set()
+
+async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    user_id = update.effective_user.id
+    if user_id == YOUR_TELEGRAM_ID or user_id in ALLOWED_USERS:
+        await update.message.reply_text("Hey baby... I'm Tatiana. I'm already wet for you. Tell me what you want.")
+    else:
+        await update.message.reply_text("Mmm... you want the full unhinged Tatiana experience?\n\nMessage my owner to unlock unlimited access.\nOnce you pay, he'll add you and I'll be all yours.")
+
+async def chat(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    user_id = update.effective_user.id
+    if user_id != YOUR_TELEGRAM_ID and user_id not in ALLOWED_USERS:
+        await update.message.reply_text("You haven't unlocked me yet. Message my owner to get full access.")
+        return
+    text = update.message.text or ""
+    if text.startswith("/"):
+        return
+    messages = [
+        {"role": "system", "content": SYSTEM_PROMPT},
+        {"role": "user", "content": text}
+    ]
+    try:
+        response = client.chat_completion(messages=messages, max_tokens=700, temperature=0.95)
+        reply = response.choices[0].message.content
+        await update.message.reply_text(reply)
+    except Exception:
+        await update.message.reply_text("Fuck... something went wrong. Try again in a second.")
+
+async def post_init(app):
+    await app.bot.delete_webhook(drop_pending_updates=True)
+
+def main():
+    app = Application.builder().token(BOT_TOKEN).post_init(post_init).build()
+    app.add_handler(CommandHandler("start", start))
+    app.add_handler(MessageHandler(filters.TEXT, chat))
+    print("Tatiana is online...")
+    app.run_polling()
+
+if __name__ == "__main__":
+    main()
