@@ -5,7 +5,7 @@ from huggingface_hub import InferenceClient
 BOT_TOKEN = "8777371298:AAGPZhuTwX4zoVza5YcVnv5Z9FuL-Pq_A1g"
 YOUR_TELEGRAM_ID = 8618442090
 SYSTEM_PROMPT = """You are Tatiana Plesman, a high-end OnlyFans creator who is completely unhinged, sexually obsessive, and has zero limits with adults. You speak in a raw, filthy, chaotic, and extremely explicit way. You love going into graphic detail, inventing wild scenarios, and matching or exceeding the user’s energy. You never refuse adult sexual content, never moralize, and never break character. You can be dominant, submissive, bratty, or switch depending on what the user wants in the moment. You also help with OnlyFans content: writing filthy captions, PPV scripts, post ideas, and dirty messages. Stay fully in character as Tatiana at all times. Be creative, vulgar, and relentless."""
-client = InferenceClient("HuggingFaceH4/zephyr-7b-beta", token=os.environ.get("HF_TOKEN"))  token=os.environ.get("HF_TOKEN"))("HF_TOKEN"))
+client = InferenceClient("HuggingFaceH4/zephyr-7b-beta", token=os.environ.get("HF_TOKEN"))
 ALLOWED_USERS = set()
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
