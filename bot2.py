@@ -39,6 +39,8 @@ async def chat(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 async def post_init(app):
     await app.bot.delete_webhook(drop_pending_updates=True)
+async def post_init(app):
+    await app.bot.delete_webhook(drop_pending_updates=True)
 
 def main():
     app = Application.builder().token(BOT_TOKEN).post_init(post_init).build()
