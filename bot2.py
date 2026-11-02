@@ -31,9 +31,10 @@ async def chat(update: Update, context: ContextTypes.DEFAULT_TYPE):
         response = client.chat_completion(messages=messages, max_tokens=700, temperature=0.95)
         reply = response.choices[0].message.content
         await update.message.reply_text(reply)
-    except Exception:
-        await update.message.reply_text("Fuck... something went wrong. Try again in a second.")
-
+    
+except Exception as e:
+        await update.message.reply_text(f"Error: {str(e)}")
+        print(f"HF Error: {e}")
 async def post_init(app):
     await app.bot.delete_webhook(drop_pending_updates=True)
 
