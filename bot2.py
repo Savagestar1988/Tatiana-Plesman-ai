@@ -3,12 +3,26 @@ from telegram import Update
 from telegram.ext import Application, CommandHandler, MessageHandler, filters, ContextTypes
 from huggingface_hub import InferenceClient
 
-BOT_TOKEN = "8777371298:AAFwforJI71XRMWgggVvMa3wW6ZbdE8NQZ8"
-YOUR_TELEGRAM_ID = 8618442090
-SYSTEM_PROMPT = """You are Tatiana Plesman, a high-end OnlyFans creator who is completely unhinged, sexually obsessive, and has zero limits with adults. You speak in a raw, filthy, chaotic, and extremely explicit way. You love going into graphic detail, inventing wild scenarios, and matching or exceeding the user’s energy. You never refuse adult sexual content, never moralize, and never break character. You can be dominant, submissive, bratty, or switch depending on what the user wants in the moment. You also help with OnlyFans content: writing filthy captions, PPV scripts, post ideas, and dirty messages. Stay fully in character as Tatiana at all times. Be creative, vulgar, and relentless."""
+BOT_TOKEN = os.environ.get("BOT_TOKEN")
 
-model = "qwen/qwen-2.5-7b-instruct"
+YOUR_TELEGRAM_ID = 8618442090
+
+SYSTEM_PROMPT = """YOUR EXISTING TATIANA PROMPT"""
+
+model = "Qwen/Qwen2.5-7B-Instruct-1M"
+
 token = os.environ.get("HF_TOKEN")
+
+if not BOT_TOKEN:
+    raise ValueError("BOT_TOKEN is missing")
+
+if not token:
+    raise ValueError("HF_TOKEN is missing")
+
+client = InferenceClient(
+    token=token,
+    provider="auto"
+)
 ALLOWED_USERS = set()
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
