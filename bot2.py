@@ -9,9 +9,13 @@ YOUR_TELEGRAM_ID = 8618442090
 
 SYSTEM_PROMPT = """YOUR EXISTING TATIANA PROMPT"""
 
-model = "Qwen/Qwen2.5-7B-Instruct-1M"
-
-token = os.environ.get("HF_TOKEN")
+model = "Qwen/Qwen2.5-7B-Instruct"
+...
+client = InferenceClient(
+    model=model,
+    token=token,
+    provider="auto"
+)
 
 if not BOT_TOKEN:
     raise ValueError("BOT_TOKEN is missing")
