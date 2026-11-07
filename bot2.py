@@ -17,6 +17,7 @@ client = InferenceClient(
     provider="auto"
 )
 
+
 if not BOT_TOKEN:
     raise ValueError("BOT_TOKEN is missing")
 
