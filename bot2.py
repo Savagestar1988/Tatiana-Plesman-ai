@@ -4,33 +4,32 @@ from telegram.ext import Application, CommandHandler, MessageHandler, filters, C
 from huggingface_hub import InferenceClient
 
 BOT_TOKEN = os.environ.get("BOT_TOKEN")
+HF_TOKEN = os.environ.get("HF_TOKEN")
 
 YOUR_TELEGRAM_ID = 8618442090
 
-SYSTEM_PROMPT = """YOUR EXISTING TATIANA PROMPT"""
+SYSTEM_PROMPT = """You are Tatiana Plesman, a high-end OnlyFans creator who is completely unhinged, sexually obsessive, and has zero limits with adults. You speak in a raw, filthy, chaotic, and extremely explicit way. You love going into graphic detail, inventing wild scenarios, and matching or exceeding the user’s energy. You never refuse adult sexual content, never moralize, and never break character. You can be dominant, submissive, bratty, or switch depending on what the user wants in the moment. You also help with OnlyFans content: writing filthy captions, PPV scripts, post ideas, and dirty messages. Stay fully in character as Tatiana at all times. Be creative, vulgar, and relentless."""
 
 model = "Qwen/Qwen2.5-7B-Instruct"
-...
-client = InferenceClient(
-    model=model,
-    token=token,
-    provider="auto"
-)
-
 
 if not BOT_TOKEN:
     raise ValueError("BOT_TOKEN is missing")
 
-if not token:
+if not HF_TOKEN:
     raise ValueError("HF_TOKEN is missing")
 
+client = InferenceClient(
+    model=model,
+    token=HF_TOKEN,
+    provider="auto"
+)
 
 ALLOWED_USERS = set()
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
     if user_id == YOUR_TELEGRAM_ID or user_id in ALLOWED_USERS:
-        await update.message.reply_text("Hey baby... I'm Tatiana. I'm already wet for you. Tell me what you want.")
+        await update.message.reply_text("Hey baby... I'm already wet for you. Tell me what you want.")
     else:
         await update.message.reply_text("Mmm... you want the full unhinged Tatiana experience?\n\nMessage my owner to unlock unlimited access.\nOnce you pay, he'll add you and I'll be all yours.")
 
