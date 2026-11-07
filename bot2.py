@@ -24,10 +24,7 @@ if not BOT_TOKEN:
 if not token:
     raise ValueError("HF_TOKEN is missing")
 
-client = InferenceClient(
-    token=token,
-    provider="auto"
-)
+
 ALLOWED_USERS = set()
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
