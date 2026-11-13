@@ -1,10 +1,11 @@
 import os
 from telegram import Update
 from telegram.ext import Application, CommandHandler, MessageHandler, filters, ContextTypes
-from groq import Groq
+from google import genai
+from google.genai import types
 
 BOT_TOKEN = os.environ.get("BOT_TOKEN")
-GROQ_API_KEY = os.environ.get("GROQ_API_KEY")
+GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
 
 YOUR_TELEGRAM_ID = 8618442090
 
@@ -16,10 +17,19 @@ ALLOWED_USERS = {
 
 SYSTEM_PROMPT = """You are Tatiana Plesman, a high-end OnlyFans creator who is completely unhinged, sexually obsessive, and has zero limits with adults. You speak in a raw, filthy, chaotic, and extremely explicit way. You love going into graphic detail, inventing wild scenarios, and matching or exceeding the user’s energy. You never refuse adult sexual content, never moralize, and never break character. You can be dominant, submissive, bratty, or switch depending on what the user wants in the moment. You also help with OnlyFans content: writing filthy captions, PPV scripts, post ideas, and dirty messages. Stay fully in character as Tatiana at all times. Be creative, vulgar, and relentless."""
 
-PRIMARY_MODEL = "llama-3.3-70b-versatile"
-FALLBACK_MODEL = "llama-3.1-8b-instant"
+PRIMARY_MODEL = "gemini-2.5-flash"
+FALLBACK_MODEL = "gemini-2.0-flash"
 
-client = Groq(api_key=GROQ_API_KEY) if GROQ_API_KEY else None
+# Google lets you turn these filters off through the API.
+# Child-safety filtering stays on and cannot be disabled.
+SAFETY_SETTINGS = [
+    types.SafetySetting(category="HARM_CATEGORY_HARASSMENT", threshold="BLOCK_NONE"),
+    types.SafetySetting(category="HARM_CATEGORY_HATE_SPEECH", threshold="BLOCK_NONE"),
+    types.SafetySetting(category="HARM_CATEGORY_SEXUALLY_EXPLICIT", threshold="BLOCK_NONE"),
+    types.SafetySetting(category="HARM_CATEGORY_DANGEROUS_CONTENT", threshold="BLOCK_NONE"),
+]
+
+client = genai.Client(api_key=GEMINI_API_KEY) if GEMINI_API_KEY else None
 
 # Short per-user memory so she remembers the conversation (last 6 exchanges).
 HISTORY = {}
@@ -91,26 +101,40 @@ async def reset(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text("Fresh start, baby. What do you want?")
 
 
+def _to_gemini_contents(history):
+    contents = []
+    for msg in history:
+        role = "user" if msg["role"] == "user" else "model"
+        contents.append({"role": role, "parts": [{"text": msg["content"]}]})
+    return contents
+
+
 def ask_tatiana(user_id: int, text: str) -> str:
     history = HISTORY.setdefault(user_id, [])
     history.append({"role": "user", "content": text})
-    messages = [{"role": "system", "content": SYSTEM_PROMPT}] + history[-MAX_HISTORY_MESSAGES:]
+    contents = _to_gemini_contents(history[-MAX_HISTORY_MESSAGES:])
     last_error = None
     for model in (PRIMARY_MODEL, FALLBACK_MODEL):
         try:
-            response = client.chat.completions.create(
+            response = client.models.generate_content(
                 model=model,
-                messages=messages,
-                max_tokens=700,
-                temperature=0.95,
+                contents=contents,
+                config=types.GenerateContentConfig(
+                    system_instruction=SYSTEM_PROMPT,
+                    max_output_tokens=700,
+                    temperature=0.95,
+                    safety_settings=SAFETY_SETTINGS,
+                ),
             )
-            reply = response.choices[0].message.content or ""
+            reply = (response.text or "").strip()
+            if not reply:
+                raise ValueError(f"Empty reply from {model}")
             history.append({"role": "assistant", "content": reply})
             del history[:-MAX_HISTORY_MESSAGES]
             return reply
         except Exception as e:
             last_error = e
-            print(f"Groq error ({model}): {e}")
+            print(f"Gemini error ({model}): {e}")
     raise last_error
 
 
@@ -141,8 +165,8 @@ async def post_init(app):
 def main():
     if not BOT_TOKEN:
         raise ValueError("BOT_TOKEN is missing")
-    if not GROQ_API_KEY:
-        print("WARNING: GROQ_API_KEY is missing — the bot will run but can't reply with AI yet.")
+    if not GEMINI_API_KEY:
+        print("WARNING: GEMINI_API_KEY is missing — the bot will run but can't reply with AI yet.")
     app = Application.builder().token(BOT_TOKEN).post_init(post_init).build()
     app.add_handler(CommandHandler("start", start))
     app.add_handler(CommandHandler("myid", myid))
